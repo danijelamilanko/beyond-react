@@ -3,13 +3,17 @@ import path from 'path';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import dotenv from 'dotenv';
+import Promise from 'bluebird';
 
 import auth from './routes/auth';
 
+dotenv.config();
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-mongoose.connect('mongodb://localhost:27017/beyond', {useMongoClient: true});
+mongoose.Promise = Promise;
+mongoose.connect(process.env.MONGODB_URL, {useMongoClient: true});
 
 app.use('/api/auth', auth);
 
