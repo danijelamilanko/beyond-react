@@ -1,11 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import { allItemsSelector } from '../../reducers/items';
+import {allItemsSelector} from '../../reducers/items';
 import LoadingHOC from '../HOC/LoadingHOC'
+import * as actions from '../../actions/items';
 
 class DashboardPage extends React.Component {
-    componentDidMount = () => this.onInit(this.props);
 
     render() {
         const {items} = this.props;
@@ -29,4 +29,6 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(LoadingHOC('items')(DashboardPage));
+const mapDispatchToProps = { fetchItems: actions.fetchItems };
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoadingHOC('items')(DashboardPage));
