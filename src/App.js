@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import HomePage from './components/pages/HomePage';
 import LoginPage from './components/pages/LoginPage';
-import NewItemPage from './components/pages/NewItemPage';
 import DashboardPage from './components/pages/DashboardPage';
 import UserRoute from './components/routes/UserRoute';
 import GuestRoute from './components/routes/GuestRoute';
@@ -17,7 +16,6 @@ const App = ({ location, isAuthenticated }) => (
         <Route location={location} path="/" exact component={HomePage} />
         <GuestRoute location={location} path="/login" exact component={LoginPage} />
         <UserRoute location={location} path="/dashboard" exact component={DashboardPage} />
-        <UserRoute location={location} path="/items/new" exact component={NewItemPage} />
     </div>
 );
 
