@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Route } from 'react-router-dom';
-import "semantic-ui-css/semantic.min.css";
+import 'semantic-ui-css/semantic.min.css';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import decode from 'jwt-decode';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './rootReducer';
 import { userLoggedIn } from './actions/auth';
+import setAuthorizationHeader from './utils/setAuthorizationHeader';
 
 const store = createStore(
     rootReducer,
@@ -17,7 +19,12 @@ const store = createStore(
 );
 
 if (localStorage.beyondJWT) {
-    const user = { token: localStorage.beyondJWT };
+    const payload = decode(localStorage.beyondJWT);
+    const user = {
+        token: localStorage.beyondJWT,
+        email: payload.email
+    };
+    setAuthorizationHeader(localStorage.beyondJWT);
     store.dispatch(userLoggedIn(user));
 }
 

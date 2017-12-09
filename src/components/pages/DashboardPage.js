@@ -2,16 +2,22 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {allItemsSelector} from '../../reducers/items';
-import LoadingHOC from '../HOC/LoadingHOC'
 import * as actions from '../../actions/items';
+import ItemList from './ItemList';
 
 class DashboardPage extends React.Component {
+    componentDidMount = () => {
+        this.onInit(this.props);
+    };
+
+    onInit = props => {
+        props.fetchItems();
+    };
 
     render() {
-        const {items} = this.props;
         return (
             <div>
-                {items.length}
+                <ItemList items={this.props.items}/>
             </div>
         );
     }
@@ -20,7 +26,8 @@ class DashboardPage extends React.Component {
 DashboardPage.propTypes = {
     items: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired
-    }).isRequired).isRequired
+    }).isRequired).isRequired,
+    fetchItems: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -31,4 +38,4 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = { fetchItems: actions.fetchItems };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoadingHOC('items')(DashboardPage));
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);

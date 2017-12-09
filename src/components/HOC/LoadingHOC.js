@@ -10,12 +10,12 @@ const isEmpty = (prop) => (
 
 
 const LoadingHOC = (loadingProp) => (WrappedComponent) => {
-    return class LoadingHOC extends Component {
-
+    class Wrapper extends React.Component {
         render() {
             return isEmpty(this.props[loadingProp]) ? <div className="loader" /> : <WrappedComponent {...this.props}/>;
         }
     }
-}
+    return Wrapper;
+};
 
 export default LoadingHOC;

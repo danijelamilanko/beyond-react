@@ -10,7 +10,6 @@ const itemsFetched = data => ({
 });
 
 export const fetchItems = () => dispatch => {
-    console.log('fdsf');
     api.items
         .fetchAll()
         .then(items => dispatch(itemsFetched(normalize(items, [itemSchema]))));
