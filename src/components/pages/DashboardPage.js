@@ -6,6 +6,7 @@ import * as actions from '../../actions/items';
 import ItemList from './ItemList';
 
 class DashboardPage extends React.Component {
+
     componentDidMount = () => {
         this.onInit(this.props);
     };

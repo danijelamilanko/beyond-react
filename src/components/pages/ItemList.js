@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import LoadingHOC from '../HOC/LoadingHOC'
 
@@ -22,4 +21,4 @@ ItemList.propTypes = {
     items: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default connect()(LoadingHOC('items')(ItemList));
+export default LoadingHOC('items')(ItemList);
