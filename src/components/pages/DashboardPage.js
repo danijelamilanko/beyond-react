@@ -2,16 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { allItemsSelector } from '../../reducers/items';
-import AddItemCta from '../ctas/AddItemCta'
 import LoadingHOC from '../HOC/LoadingHOC'
 
 class DashboardPage extends React.Component {
+    componentDidMount = () => this.onInit(this.props);
 
     render() {
         const {items} = this.props;
         return (
             <div>
-                {items.length === 0 ? <AddItemCta /> : <p>You have books!</p>}
+                {items.length}
             </div>
         );
     }
@@ -29,4 +29,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(DashboardPage);
+export default connect(mapStateToProps)(LoadingHOC('items')(DashboardPage));
