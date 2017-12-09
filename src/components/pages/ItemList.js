@@ -7,8 +7,8 @@ const ItemList = ({items}) => {
     return (
         <ul>
             {items.map(
-                (item) => <li>
-                    <div className="itemData">
+                (item, i) => <li key='i'>
+                    <div className='itemData'>
                         <strong>{item.name}</strong>
                     </div>
                 </li>
