@@ -27,4 +27,6 @@ LoginPage.propTypes = {
     login: PropTypes.func.isRequired
 };
 
-export default connect(null, { login })(LoginPage);
+const mapDispatchToProps = { login };
+
+export default connect(null, mapDispatchToProps)(LoginPage);

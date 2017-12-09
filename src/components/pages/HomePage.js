@@ -23,4 +23,6 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { logout: actions.logout })(HomePage);
+const mapDispatchToProps = { logout: actions.logout };
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

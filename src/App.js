@@ -9,6 +9,7 @@ import DashboardPage from './components/pages/DashboardPage';
 import UserRoute from './components/routes/UserRoute';
 import GuestRoute from './components/routes/GuestRoute';
 import TopNavigation from './components/navigation/TopNavigation';
+import './App.css';
 
 const App = ({ location, isAuthenticated }) => (
     <div className="ui container">
