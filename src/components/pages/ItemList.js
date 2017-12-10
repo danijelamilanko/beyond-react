@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {Table, Menu, Icon} from 'semantic-ui-react';
 import LoadingHOC from '../hoc/LoadingHoc';
 
-const ItemList = ({items}) => {
+const ItemList = ({items, user}) => {
+    const userItems = items.filter(item => item.user_id === user._id);
 
     return (
         <Table celled>
@@ -14,7 +15,7 @@ const ItemList = ({items}) => {
             </Table.Header>
 
             <Table.Body>
-                {items.map(
+                {userItems.map(
                     (item) => <Table.Row key={item._id}>
                         <Table.Cell>{item.name}</Table.Cell>
                     </Table.Row>
@@ -44,7 +45,8 @@ const ItemList = ({items}) => {
 };
 
 ItemList.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object).isRequired
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    user: PropTypes.object.isRequired
 };
 
 export default LoadingHOC('items')(ItemList);

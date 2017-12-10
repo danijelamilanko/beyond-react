@@ -18,7 +18,7 @@ class DashboardPage extends React.Component {
     render() {
         return (
             <div>
-                <ItemList items={this.props.items}/>
+                <ItemList items={this.props.items} user={this.props.user}/>
             </div>
         );
     }
@@ -33,7 +33,8 @@ DashboardPage.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        items: allItemsSelector(state)
+        items: allItemsSelector(state),
+        user: state.user
     }
 }
 
