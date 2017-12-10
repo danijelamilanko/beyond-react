@@ -1,5 +1,5 @@
 import React from 'react';
-import './LoadingHOC.css';
+import './LoadingHoc.css';
 
 const isEmpty = (prop) => (
     prop === null ||
@@ -8,7 +8,7 @@ const isEmpty = (prop) => (
     (prop.constructor === Object && Object.keys(prop).length === 0)
 );
 
-
+// Higher-Order Components
 const LoadingHOC = (loadingProp) => (WrappedComponent) => {
     class Wrapper extends React.Component {
         render() {
