@@ -1,27 +1,30 @@
 import React from 'react';
-import { Menu, Dropdown, Image } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import gravatarUrl from 'gravatar-url';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/auth';
 
 const TopNavigation = ({ user, logout }) => (
-    <Menu secondary pointing>
-        <Menu.Item as={Link} to="/dashboard">Dashboard</Menu.Item>
-        <Menu.Menu position="right">
-            <Dropdown trigger={<Image avatar src={gravatarUrl(user.email)} />}>
-                <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => logout()}>Logout</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-        </Menu.Menu>
-    </Menu>
+    <div>
+        <div className='ui pointing secondary menu'>
+            <a className='active item'>Home</a>
+            <a className='item'>Messages</a>
+            <a className='item'>Friends</a>
+            <div className='right menu'>
+                <img alt='' className='ui circular image' src='/img/patrick.png' />
+                <span className='item'>{user.username}</span>
+                <a className='item' role='link' onClick={() => logout()}>Logout</a>
+            </div>
+        </div>
+        <div className='ui segment'>
+            <img alt='' src='/assets/images/wireframe/media-paragraph.png' />
+        </div>
+    </div>
 );
 
 TopNavigation.propTypes = {
     user: PropTypes.shape({
-        email: PropTypes.string.isRequired
+        email: PropTypes.string.isRequired,
+        username: PropTypes.string.isRequired
     }).isRequired,
     logout: PropTypes.func.isRequired
 };

@@ -3,6 +3,10 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 const schema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true
@@ -20,12 +24,14 @@ schema.methods.isValidPassword = function isValidPassword(password) {
 schema.methods.generateJWT = function generateJWT() {
     return jwt.sign({
         email: this.email,
+        username: this.username,
     }, process.env.JWT_SECRET);
 };
 
 schema.methods.toAuthJSON = function toAuthJSON() {
     return {
         email: this.email,
+        username: this.username,
         token: this.generateJWT()
     }
 };

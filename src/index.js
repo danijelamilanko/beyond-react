@@ -22,7 +22,8 @@ if (localStorage.beyondJWT) {
     const payload = decode(localStorage.beyondJWT);
     const user = {
         token: localStorage.beyondJWT,
-        email: payload.email
+        email: payload.email,
+        username: payload.username
     };
     setAuthorizationHeader(localStorage.beyondJWT);
     store.dispatch(userLoggedIn(user));
