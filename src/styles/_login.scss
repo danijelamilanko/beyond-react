@@ -1,0 +1,17 @@
+@import 'colors';
+
+body {
+    background-color: $grey;
+
+    & > .grid {
+        height: 100%;
+    }
+
+    .column {
+        max-width: 450px;
+    }
+
+    a, a:hover {
+        color: $green;
+    }
+}

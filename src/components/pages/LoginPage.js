@@ -12,7 +12,7 @@ class LoginPage extends React.Component {
     render() {
         return (
             <div>
-                <h1>Login Page</h1>
+                <h1>REMOTE CAREER JOBS</h1>
 
                 <LoginForm submit={this.submit} />
             </div>
