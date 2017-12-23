@@ -6,9 +6,8 @@ import * as actions from '../../actions/auth';
 const TopNavigation = ({ user, logout }) => (
     <div>
         <div className='ui pointing secondary menu'>
-            <a className='active item'>Home</a>
-            <a className='item'>Messages</a>
-            <a className='item'>Friends</a>
+            <a className='active item'>Programming jobs</a>
+            <a className='item'>Copywriting</a>
             <div className='right menu'>
                 <img alt='' className='ui circular image' src='/img/patrick.png' />
                 <span className='item'>{user.username}</span>
