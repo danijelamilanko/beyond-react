@@ -5,6 +5,7 @@ import {allJobsSelector} from '../../reducers/jobs';
 import * as actions from '../../actions/jobs';
 import JobList from './JobList';
 import TopNavigation from '../navigation/TopNavigation';
+import AddJobCtA from '../ctas/AddJobCtA';
 
 class DashboardPage extends React.Component {
 
@@ -21,6 +22,7 @@ class DashboardPage extends React.Component {
             <div>
                 <TopNavigation/>
                 <h1>REMOTE CAREER JOBS</h1>
+                <AddJobCtA/>
                 <JobList jobs={this.props.jobs} user={this.props.user}/>
             </div>
         );

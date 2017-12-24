@@ -24,12 +24,15 @@ const TopNavigation = ({isAuthenticated, user, logout}) => (
     </div>
 );
 
+TopNavigation.defaultProps = {
+    user: {
+        email: '',
+        username: ''
+    }
+};
+
 TopNavigation.propTypes = {
     isAuthenticated: PropTypes.bool.isRequired,
-    user: PropTypes.shape({
-        email: PropTypes.string.isRequired,
-        username: PropTypes.string.isRequired
-    }).isRequired,
     logout: PropTypes.func.isRequired
 };
 
