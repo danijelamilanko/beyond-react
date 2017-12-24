@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {allItemsSelector} from '../../reducers/items';
-import * as actions from '../../actions/items';
-import ItemList from './ItemList';
+import {allJobsSelector} from '../../reducers/jobs';
+import * as actions from '../../actions/jobs';
+import JobList from './JobList';
 
 class DashboardPage extends React.Component {
 
@@ -12,32 +12,33 @@ class DashboardPage extends React.Component {
     };
 
     onInit = props => {
-        props.fetchItems();
+        props.fetchJobs();
     };
 
     render() {
         return (
             <div>
-                <ItemList items={this.props.items} user={this.props.user}/>
+                <h1>REMOTE CAREER JOBS</h1>
+                <JobList jobs={this.props.jobs} user={this.props.user}/>
             </div>
         );
     }
 }
 
 DashboardPage.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.shape({
+    jobs: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired
     }).isRequired).isRequired,
-    fetchItems: PropTypes.func.isRequired
+    fetchJobs: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
     return {
-        items: allItemsSelector(state),
+        jobs: allJobsSelector(state),
         user: state.user
     }
 }
 
-const mapDispatchToProps = { fetchItems: actions.fetchItems };
+const mapDispatchToProps = { fetchJobs: actions.fetchJobs };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);

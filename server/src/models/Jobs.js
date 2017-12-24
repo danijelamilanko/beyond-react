@@ -11,4 +11,4 @@ const schema = new mongoose.Schema({
     }
 });
 
-export default mongoose.model("Item", schema);
+export default mongoose.model("Job", schema);

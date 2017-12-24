@@ -14,9 +14,6 @@ const TopNavigation = ({ user, logout }) => (
                 <a className='item' role='link' onClick={() => logout()}>Logout</a>
             </div>
         </div>
-        <div className='ui segment'>
-            <img alt='' src='/assets/images/wireframe/media-paragraph.png' />
-        </div>
     </div>
 );
 

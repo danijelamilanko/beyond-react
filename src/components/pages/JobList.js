@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import {Table, Menu, Icon} from 'semantic-ui-react';
 import LoadingHOC from '../hoc/LoadingHoc';
 
-const ItemList = ({items, user}) => {
-    const userItems = items.filter(item => item.user_id === user._id);
+const JobList = ({jobs, user}) => {
+    const userJobs = jobs.filter(job => job.user_id === user._id);
 
     return (
         <Table celled>
@@ -15,9 +15,9 @@ const ItemList = ({items, user}) => {
             </Table.Header>
 
             <Table.Body>
-                {userItems.map(
-                    (item) => <Table.Row key={item._id}>
-                        <Table.Cell>{item.name}</Table.Cell>
+                {userJobs.map(
+                    (job) => <Table.Row key={job._id}>
+                        <Table.Cell>{job.name}</Table.Cell>
                     </Table.Row>
                 )}
             </Table.Body>
@@ -44,9 +44,9 @@ const ItemList = ({items, user}) => {
     )
 };
 
-ItemList.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+JobList.propTypes = {
+    jobs: PropTypes.arrayOf(PropTypes.object).isRequired,
     user: PropTypes.object.isRequired
 };
 
-export default LoadingHOC('items')(ItemList);
+export default LoadingHOC('jobs')(JobList);
