@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {allJobsSelector} from '../../reducers/jobs';
 import * as actions from '../../actions/jobs';
 import JobList from './JobList';
+import TopNavigation from '../navigation/TopNavigation';
 
 class DashboardPage extends React.Component {
 
@@ -12,12 +13,13 @@ class DashboardPage extends React.Component {
     };
 
     onInit = props => {
-        props.fetchJobs();
+        props.fetchJobsAuth();
     };
 
     render() {
         return (
             <div>
+                <TopNavigation/>
                 <h1>REMOTE CAREER JOBS</h1>
                 <JobList jobs={this.props.jobs} user={this.props.user}/>
             </div>
@@ -26,10 +28,14 @@ class DashboardPage extends React.Component {
 }
 
 DashboardPage.propTypes = {
+    user: PropTypes.shape({
+        email: PropTypes.string.isRequired,
+        username: PropTypes.string.isRequired
+    }).isRequired,
     jobs: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired
     }).isRequired).isRequired,
-    fetchJobs: PropTypes.func.isRequired
+    fetchJobsAuth: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -39,6 +45,6 @@ function mapStateToProps(state) {
     }
 }
 
-const mapDispatchToProps = { fetchJobs: actions.fetchJobs };
+const mapDispatchToProps = {fetchJobsAuth: actions.fetchJobsAuth};
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);

@@ -4,7 +4,12 @@ import {Table, Menu, Icon} from 'semantic-ui-react';
 import LoadingHOC from '../hoc/LoadingHoc';
 
 const JobList = ({jobs, user}) => {
-    const userJobs = jobs.filter(job => job.user_id === user._id);
+    let userJobs = [];
+    if (user === null) {
+        userJobs = jobs;
+    } else {
+        userJobs = jobs.filter(job => job.user_id === user._id);
+    }
 
     return (
         <Table celled>
@@ -44,9 +49,12 @@ const JobList = ({jobs, user}) => {
     )
 };
 
+JobList.defaultProps = {
+    user: null
+};
+
 JobList.propTypes = {
-    jobs: PropTypes.arrayOf(PropTypes.object).isRequired,
-    user: PropTypes.object.isRequired
+    jobs: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default LoadingHOC('jobs')(JobList);
