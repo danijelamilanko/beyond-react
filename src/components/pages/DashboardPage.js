@@ -19,7 +19,7 @@ class DashboardPage extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="dashboard-page">
                 <TopNavigation/>
                 <h1>REMOTE CAREER JOBS</h1>
                 <AddJobCtA/>

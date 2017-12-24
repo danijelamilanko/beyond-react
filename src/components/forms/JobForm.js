@@ -64,7 +64,9 @@ class JobForm extends React.Component {
                         </Grid.Row>
 
                         <Grid.Row>
-                            <Button primary>Save</Button>
+                            <Grid.Column>
+                                <Button className="ui large teal submit button">Save</Button>
+                            </Grid.Column>
                         </Grid.Row>
                     </Grid>
                 </Form>
