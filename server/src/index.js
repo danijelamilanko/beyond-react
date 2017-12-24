@@ -8,6 +8,7 @@ import Promise from 'bluebird';
 
 import auth from './routes/auth';
 import jobs from "./routes/jobs";
+import authjobs from "./routes/authjobs";
 
 dotenv.config();
 const app = express();
@@ -18,7 +19,7 @@ mongoose.connect(process.env.MONGODB_URL, {useMongoClient: true});
 
 app.use('/api/auth', auth);
 app.use("/api/jobs", jobs);
-app.use("/api/authjobs", jobs);
+app.use("/api/authjobs", authjobs);
 
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));

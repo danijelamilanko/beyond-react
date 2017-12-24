@@ -13,6 +13,7 @@
         "gravatar-url": "^2.0.0",
         "jsonwebtoken": "^8.1.0",
         "jwt-decode": "^2.2.0",
+        "lodash": "^4.17.4",
         "mongoose": "^4.12.5",
         "node-sass-chokidar": "0.0.3",
         "nodemon": "^1.12.1",

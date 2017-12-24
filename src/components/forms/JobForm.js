@@ -35,7 +35,7 @@ class JobForm extends React.Component {
 
     validate = data => {
         const errors = {};
-        if (!data.name) errors.title = "Can't be blank";
+        if (!data.name) errors.name = "Can't be blank";
         return errors;
     };
 
@@ -48,8 +48,8 @@ class JobForm extends React.Component {
                     <Grid columns={2} stackable>
                         <Grid.Row>
                             <Grid.Column>
-                                <Form.Field error={!!errors.title}>
-                                    <label htmlFor="title">Job Name</label>
+                                <Form.Field error={!!errors.name}>
+                                    <label htmlFor="name">Job Name</label>
                                     <input
                                         type="text"
                                         id="name"
@@ -58,7 +58,7 @@ class JobForm extends React.Component {
                                         value={data.name}
                                         onChange={this.onChange}
                                     />
-                                    {errors.title && <InlineError text={errors.title}/>}
+                                    {errors.name && <InlineError text={errors.name}/>}
                                 </Form.Field>
                             </Grid.Column>
                         </Grid.Row>
