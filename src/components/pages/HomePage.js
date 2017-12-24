@@ -5,7 +5,7 @@ import {allJobsSelector} from '../../reducers/jobs';
 import * as actions from '../../actions/jobs';
 import JobList from './JobList';
 import TopNavigation from '../navigation/TopNavigation';
-
+import AddJobCtA from '../ctas/AddJobCtA';
 
 class HomePage extends React.Component {
 
@@ -22,6 +22,7 @@ class HomePage extends React.Component {
             <div className="home-page">
                 <TopNavigation/>
                 <h1>REMOTE CAREER JOBS</h1>
+                { this.props.isAuthenticated && <AddJobCtA/> }
                 <JobList jobs={this.props.jobs}/>
             </div>
         )
@@ -29,6 +30,7 @@ class HomePage extends React.Component {
 }
 
 HomePage.propTypes = {
+    isAuthenticated: PropTypes.bool.isRequired,
     jobs: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired
     }).isRequired).isRequired,
@@ -37,7 +39,8 @@ HomePage.propTypes = {
 
 function mapStateToProps(state) {
     return {
-        jobs: allJobsSelector(state)
+        jobs: allJobsSelector(state),
+        isAuthenticated: !!state.user.token
     }
 }
 
