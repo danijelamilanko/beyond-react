@@ -17,7 +17,7 @@ const TopNavigation = ({isAuthenticated, user, logout}) => (
             }
             { !isAuthenticated &&
             <div className='right menu'>
-                <a className='item' role='link' href="/login">Login</a>
+                <a className='item' href="/login">Login</a>
             </div>
             }
         </div>
