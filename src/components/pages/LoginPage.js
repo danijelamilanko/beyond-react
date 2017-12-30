@@ -13,7 +13,6 @@ class LoginPage extends React.Component {
         return (
             <div className="login-page">
                 <h1>REMOTE CAREER JOBS</h1>
-
                 <LoginForm submit={this.submit}/>
             </div>
         );

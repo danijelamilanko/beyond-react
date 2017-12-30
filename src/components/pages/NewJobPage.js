@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Segment} from "semantic-ui-react";
 import JobForm from "../forms/JobForm";
+import TopNavigation from '../navigation/TopNavigation';
 import {createJob} from "../../actions/jobs";
 
 class NewJobPage extends React.Component {
@@ -15,11 +16,13 @@ class NewJobPage extends React.Component {
 
     render() {
         return (
-            <Segment>
+            <div className="add-job-page">
+                <TopNavigation/>
                 <h1>Add new job</h1>
-
-                <JobForm submit={this.addJob}/>
-            </Segment>
+                <Segment>
+                    <JobForm submit={this.addJob}/>
+                </Segment>
+            </div>
         );
     }
 }
