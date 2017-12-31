@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const AddJobCtA = () => (
     <Card centered>
         <Card.Content textAlign="center">
-            <Link to="/job/new">
+            <Link to="/newjob">
                 Add new job
             </Link>
         </Card.Content>
