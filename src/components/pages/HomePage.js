@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {withRouter} from "react-router-dom";
 import {allJobsSelector} from '../../reducers/jobs';
 import * as actions from '../../actions/jobs';
 import JobList from './JobList';
@@ -8,6 +9,11 @@ import TopNavigation from '../navigation/TopNavigation';
 import AddJobCtA from '../ctas/AddJobCtA';
 
 class HomePage extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.onJobClick = this.onJobClick.bind(this);
+    }
 
     componentDidMount = () => {
         this.onInit(this.props);
@@ -17,19 +23,26 @@ class HomePage extends React.Component {
         props.fetchJobs();
     };
 
+    onJobClick = (job) => {
+        this.props.history.push(`/job/ + ${job._id}`);
+    };
+
     render() {
         return (
             <div className="home-page">
                 <TopNavigation/>
                 <h1>REMOTE CAREER JOBS</h1>
                 {this.props.isAuthenticated && <AddJobCtA/>}
-                <JobList jobs={this.props.jobs}/>
+                <JobList onJobClick={this.onJobClick} jobs={this.props.jobs}/>
             </div>
         )
     }
 }
 
 HomePage.propTypes = {
+    history: PropTypes.shape({
+        push: PropTypes.func.isRequired
+    }).isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
     jobs: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired
@@ -46,4 +59,4 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {fetchJobs: actions.fetchJobs};
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(HomePage));

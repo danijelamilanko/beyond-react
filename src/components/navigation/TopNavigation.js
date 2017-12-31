@@ -33,7 +33,11 @@ TopNavigation.defaultProps = {
 
 TopNavigation.propTypes = {
     isAuthenticated: PropTypes.bool.isRequired,
-    logout: PropTypes.func.isRequired
+    logout: PropTypes.func.isRequired,
+    user: PropTypes.shape({
+        email: PropTypes.string,
+        username: PropTypes.string
+    })
 };
 
 function mapStateToProps(state) {

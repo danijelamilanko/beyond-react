@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {withRouter} from "react-router-dom";
 import {allJobsSelector} from '../../reducers/jobs';
 import * as actions from '../../actions/jobs';
 import JobList from './JobList';
@@ -9,12 +10,21 @@ import AddJobCtA from '../ctas/AddJobCtA';
 
 class DashboardPage extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.onJobClick = this.onJobClick.bind(this);
+    }
+
     componentDidMount = () => {
         this.onInit(this.props);
     };
 
-    onInit = props => {
-        props.fetchJobsAuth();
+    onInit = () => {
+        this.props.fetchJobsAuth();
+    };
+
+    onJobClick = (job) => {
+        this.props.history.push(`/job/ + ${job._id}`);
     };
 
     render() {
@@ -23,13 +33,16 @@ class DashboardPage extends React.Component {
                 <TopNavigation/>
                 <h1>REMOTE CAREER JOBS</h1>
                 <AddJobCtA/>
-                <JobList jobs={this.props.jobs} user={this.props.user}/>
+                <JobList onJobClick={this.onJobClick} jobs={this.props.jobs} user={this.props.user}/>
             </div>
         );
     }
 }
 
 DashboardPage.propTypes = {
+    history: PropTypes.shape({
+        push: PropTypes.func.isRequired
+    }).isRequired,
     user: PropTypes.shape({
         email: PropTypes.string.isRequired,
         username: PropTypes.string.isRequired
@@ -49,4 +62,4 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {fetchJobsAuth: actions.fetchJobsAuth};
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(DashboardPage));
