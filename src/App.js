@@ -9,7 +9,6 @@ import UserRoute from './components/routes/UserRoute';
 import GuestRoute from './components/routes/GuestRoute';
 import NewJobPage from "./components/pages/NewJobPage";
 import JobPage from "./components/pages/JobPage";
-import AuthJobPage from "./components/pages/AuthJobPage";
 import './App.css';
 
 const App = ({location}) => (
@@ -18,8 +17,7 @@ const App = ({location}) => (
         <GuestRoute location={location} path="/login" exact component={LoginPage}/>
         <UserRoute location={location} path="/dashboard" exact component={DashboardPage}/>
         <UserRoute location={location} path="/newjob" exact component={NewJobPage}/>
-        <GuestRoute location={location} path="/job/" component={JobPage}/>
-        <UserRoute location={location} path="/authjob/" component={AuthJobPage}/>
+        <Route location={location} path="/job/" component={JobPage}/>
     </div>
 );
 

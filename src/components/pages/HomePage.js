@@ -24,11 +24,7 @@ class HomePage extends React.Component {
     };
 
     onJobClick = (job) => {
-        if (this.props.isAuthenticated) {
-            this.props.history.push(`/authjob/ + ${job._id}`);
-        } else {
-            this.props.history.push(`/job/ + ${job._id}`);
-        }
+        this.props.history.push(`/job/ + ${job._id}`);
     };
 
     render() {
