@@ -24,7 +24,7 @@ class DashboardPage extends React.Component {
     };
 
     onJobClick = (job) => {
-        this.props.history.push(`/job/ + ${job._id}`);
+        this.props.history.push(`/job/${job._id}`);
     };
 
     render() {

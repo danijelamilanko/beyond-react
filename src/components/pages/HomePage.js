@@ -19,12 +19,12 @@ class HomePage extends React.Component {
         this.onInit(this.props);
     };
 
-    onInit = props => {
-        props.fetchJobs();
+    onInit = () => {
+        this.props.fetchJobs();
     };
 
     onJobClick = (job) => {
-        this.props.history.push(`/job/ + ${job._id}`);
+        this.props.history.push(`/job/${job._id}`);
     };
 
     render() {
@@ -47,8 +47,8 @@ HomePage.propTypes = {
     jobs: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string.isRequired
     }).isRequired).isRequired,
+    fetchJobs: PropTypes.func.isRequired
 };
-
 
 function mapStateToProps(state) {
     return {

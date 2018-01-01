@@ -1,9 +1,11 @@
 import {createSelector} from 'reselect';
-import {JOBS_FETCHED} from "../types";
+import {JOBS_FETCHED, JOB_CREATED} from "../types";
 
 export default function jobs(state = {}, action = {}) {
     switch (action.type) {
         case JOBS_FETCHED:
+            return action.data.entities.jobs;
+        case JOB_CREATED:
             return {...state, ...action.data.entities.jobs};
         default:
             return state;

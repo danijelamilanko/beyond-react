@@ -14,6 +14,12 @@ const jobCreated = data => ({
     data
 });
 
+export const fetchJob = (id) => dispatch => {
+    api.jobs
+        .fetchOne(id)
+        .then(jobs => dispatch(jobsFetched(normalize(jobs, [jobSchema]))));
+};
+
 export const fetchJobs = () => dispatch => {
     api.jobs
         .fetchAll()
