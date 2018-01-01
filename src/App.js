@@ -7,17 +7,17 @@ import LoginPage from './components/pages/LoginPage';
 import DashboardPage from './components/pages/DashboardPage';
 import UserRoute from './components/routes/UserRoute';
 import GuestRoute from './components/routes/GuestRoute';
-import NewJobPage from "./components/pages/NewJobPage";
-import JobPage from "./components/pages/JobPage";
+import NewJobPage from './components/pages/NewJobPage';
+import JobPage from './components/pages/JobPage';
 import './App.css';
 
 const App = ({location}) => (
-    <div className="ui container">
-        <Route location={location} path="/" exact component={HomePage}/>
-        <GuestRoute location={location} path="/login" exact component={LoginPage}/>
-        <UserRoute location={location} path="/dashboard" exact component={DashboardPage}/>
-        <UserRoute location={location} path="/newjob" exact component={NewJobPage}/>
-        <Route location={location} path="/job/" component={JobPage}/>
+    <div className='ui container'>
+        <Route location={location} path='/' exact component={HomePage}/>
+        <GuestRoute location={location} path='/login' exact component={LoginPage}/>
+        <UserRoute location={location} path='/dashboard' exact component={DashboardPage}/>
+        <UserRoute location={location} path='/newjob' exact component={NewJobPage}/>
+        <Route location={location} path='/job/' component={JobPage}/>
     </div>
 );
 

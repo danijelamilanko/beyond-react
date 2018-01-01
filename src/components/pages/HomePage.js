@@ -29,7 +29,7 @@ class HomePage extends React.Component {
 
     render() {
         return (
-            <div className="home-page">
+            <div className='home-page'>
                 <TopNavigation/>
                 <h1>REMOTE CAREER JOBS</h1>
                 {this.props.isAuthenticated && <AddJobCtA/>}

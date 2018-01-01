@@ -1,7 +1,7 @@
-import React from "react";
-import {connect} from "react-redux";
+import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {Segment} from "semantic-ui-react";
+import {Segment} from 'semantic-ui-react';
 import {allJobsSelector} from '../../reducers/jobs';
 import TopNavigation from '../navigation/TopNavigation';
 import * as actions from '../../actions/jobs';
@@ -18,7 +18,7 @@ class JobPage extends React.Component {
 
     render() {
         return (
-            <div className="job-page">
+            <div className='job-page'>
                 <TopNavigation/>
                 <h1>Job</h1>
                 <Segment>

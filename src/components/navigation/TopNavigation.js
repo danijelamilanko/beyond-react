@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/auth';
 
-const TopNavigation = ({isAuthenticated, user, logout}) => (
+const TopNavigation = ({isAuthenticated, user, logout, history}) => (
     <div>
         <div className='ui pointing secondary menu'>
             <a className='active item'>Programming jobs</a>
@@ -17,7 +18,7 @@ const TopNavigation = ({isAuthenticated, user, logout}) => (
             }
             { !isAuthenticated &&
             <div className='right menu'>
-                <a className='item' href="/login">Login</a>
+                <a className='item' onClick={() => history.push(`/login`)}>Login</a>
             </div>
             }
         </div>
@@ -32,6 +33,9 @@ TopNavigation.defaultProps = {
 };
 
 TopNavigation.propTypes = {
+    history: PropTypes.shape({
+        push: PropTypes.func.isRequired
+    }).isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
     logout: PropTypes.func.isRequired,
     user: PropTypes.shape({
@@ -47,4 +51,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {logout: actions.logout})(TopNavigation);
+export default connect(mapStateToProps, {logout: actions.logout})(withRouter(TopNavigation));

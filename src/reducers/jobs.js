@@ -1,5 +1,5 @@
 import {createSelector} from 'reselect';
-import {JOBS_FETCHED, JOB_CREATED} from "../types";
+import {JOBS_FETCHED, JOB_CREATED} from '../types';
 
 export default function jobs(state = {}, action = {}) {
     switch (action.type) {

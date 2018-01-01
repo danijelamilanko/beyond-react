@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import {Form, Button, Grid, Segment} from "semantic-ui-react";
-import InlineError from "../messages/InlineError";
+import React from 'react';
+import PropTypes from 'prop-types';
+import {Form, Button, Grid, Segment} from 'semantic-ui-react';
+import InlineError from '../messages/InlineError';
 
 class JobForm extends React.Component {
     state = {
@@ -49,12 +49,12 @@ class JobForm extends React.Component {
                         <Grid.Row>
                             <Grid.Column>
                                 <Form.Field error={!!errors.name}>
-                                    <label htmlFor="name">Job Name</label>
+                                    <label htmlFor='name'>Job Name</label>
                                     <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        placeholder="Name"
+                                        type='text'
+                                        id='name'
+                                        name='name'
+                                        placeholder='Name'
                                         value={data.name}
                                         onChange={this.onChange}
                                     />
@@ -65,7 +65,7 @@ class JobForm extends React.Component {
 
                         <Grid.Row>
                             <Grid.Column>
-                                <Button className="ui large teal submit button">Save</Button>
+                                <Button className='ui large teal submit button'>Save</Button>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>

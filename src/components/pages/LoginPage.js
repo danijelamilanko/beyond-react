@@ -7,11 +7,11 @@ import {login} from '../../actions/auth';
 class LoginPage extends React.Component {
 
     submit = data =>
-        this.props.login(data).then(() => this.props.history.push("/dashboard"));
+        this.props.login(data).then(() => this.props.history.push('/dashboard'));
 
     render() {
         return (
-            <div className="login-page">
+            <div className='login-page'>
                 <h1>REMOTE CAREER JOBS</h1>
                 <LoginForm submit={this.submit}/>
             </div>

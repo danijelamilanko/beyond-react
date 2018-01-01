@@ -2,9 +2,9 @@
  * Add Media Queries to phone screen sizes as needed
  */
 @media screen and (min-width: 320px) and (max-width: 480px) {
-    .right.menu {
-        img, span {
-            display: none !important;
-        }
+  .right.menu {
+    img, span {
+      display: none !important;
     }
+  }
 }

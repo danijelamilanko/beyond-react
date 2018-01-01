@@ -32,7 +32,7 @@ class LoginForm extends React.Component {
     validate = (data) => {
         const errors = {};
         if (!Validator.isEmail(data.email)) {
-            errors.email = "Invalid email";
+            errors.email = 'Invalid email';
         }
         if (!data.password) {
             errors.password = "Can't be blank";
@@ -43,27 +43,27 @@ class LoginForm extends React.Component {
     render() {
         const {data, errors, loading} = this.state;
         return (
-            <div className="ui middle aligned center aligned grid">
-                <div className="column">
-                    <h2 className="ui teal image header">
-                        <div className="content">
+            <div className='ui middle aligned center aligned grid'>
+                <div className='column'>
+                    <h2 className='ui teal image header'>
+                        <div className='content'>
                             Log-in to your account
                         </div>
                     </h2>
-                    <Form onSubmit={this.onSubmit} loading={loading} className="ui large form">
+                    <Form onSubmit={this.onSubmit} loading={loading} className='ui large form'>
                         { errors.global && <Message negative>
                             <Message.Header>Something went wrong</Message.Header>
                             <p>{errors.global}</p>
                         </Message>}
-                        <div className="ui stacked segment">
+                        <div className='ui stacked segment'>
                             <Form.Field error={!!errors.email}>
-                                <div className="field">
-                                    <div className="ui left icon input">
-                                        <i className="user icon"></i>
-                                        <input type="email"
-                                               id="email"
-                                               name="email"
-                                               placeholder="E-mail address"
+                                <div className='field'>
+                                    <div className='ui left icon input'>
+                                        <i className='user icon'></i>
+                                        <input type='email'
+                                               id='email'
+                                               name='email'
+                                               placeholder='E-mail address'
                                                value={data.email}
                                                onChange={this.onChange}
                                         />
@@ -72,13 +72,13 @@ class LoginForm extends React.Component {
                                 </div>
                             </Form.Field>
                             <Form.Field error={!!errors.password}>
-                                <div className="field">
-                                    <div className="ui left icon input">
-                                        <i className="lock icon"></i>
-                                        <input type="password"
-                                               id="password"
-                                               name="password"
-                                               placeholder="Password"
+                                <div className='field'>
+                                    <div className='ui left icon input'>
+                                        <i className='lock icon'></i>
+                                        <input type='password'
+                                               id='password'
+                                               name='password'
+                                               placeholder='Password'
                                                value={data.password}
                                                onChange={this.onChange}
                                         />
@@ -86,7 +86,7 @@ class LoginForm extends React.Component {
                                 </div>
                                 {errors.password && <InlineError text={errors.password}/>}
                             </Form.Field>
-                            <Button className="ui fluid large teal submit button">Login</Button>
+                            <Button className='ui fluid large teal submit button'>Login</Button>
                         </div>
                     </Form>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {withRouter} from "react-router-dom";
+import {withRouter} from 'react-router-dom';
 import {allJobsSelector} from '../../reducers/jobs';
 import * as actions from '../../actions/jobs';
 import JobList from './JobList';
@@ -29,7 +29,7 @@ class DashboardPage extends React.Component {
 
     render() {
         return (
-            <div className="dashboard-page">
+            <div className='dashboard-page'>
                 <TopNavigation/>
                 <h1>REMOTE CAREER JOBS</h1>
                 <AddJobCtA/>
